@@ -1,8 +1,13 @@
 all: main
 
-main: main.c
-	gcc -o main node.c main.c
+main: main.o node.o
+	gcc -o main main.o node.o
 
-clean:
-	rm main
+main.o: main.c
+	gcc -o main.o -c main.c
 
+node.o: node.c
+	gcc -o node.o -c node.c
+
+clean: 
+	rm main main.o node.o
